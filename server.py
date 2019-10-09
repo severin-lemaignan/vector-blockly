@@ -13,6 +13,8 @@ import cv2
 from lib import flask_helpers
 from io import BytesIO
 
+PORT = 5000
+
 ID = {'Purple':'00a10a53','Blue':'00804782','Green':'00703fd8','Yellow':'009041bc','Lime':'00504046'}
 app.Robots = {}
 
@@ -79,7 +81,8 @@ def video_feed(name):
 def run():
 	args = util.parse_command_args()
 
-	flask_helpers.run_flask(app,host_ip="0.0.0.0",host_port=5000,open_page=False)
+	print("Server running on http://localhost:%d - open this page in your favourite webbrowser!" % PORT)
+	flask_helpers.run_flask(app,host_ip="0.0.0.0",host_port=PORT,open_page=False)
 
 if __name__ == '__main__':
 	try:
